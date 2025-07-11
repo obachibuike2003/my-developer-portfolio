@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chibuike's Developer Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- Optional: Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Canvas for animated background -->
+    <canvas id="backgroundCanvas"></canvas>
+
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">DUMOBA TECH</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1>Hello, I'm Chibuike</h1>
+                <h2>A Backend Developer & ML Enthusiast</h2>
+                <p>Building robust systems and intelligent solutions.</p>
+                <a href="#projects" class="btn primary-btn">View My Work</a>
+                <a href="#contact" class="btn secondary-btn">Get In Touch</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <!-- Replace with your actual profile picture URL -->
+                    <img src="c:\Users\Chibuike\Documents\DUMOBA 1.jpg" alt="Chibuike's Photo" class="profile-pic">
+                    <p>
+                        I am a passionate Backend Developer with expertise in Python, focusing on building scalable and efficient server-side applications. My journey into technology has led me to explore the exciting world of Machine Learning, where I develop predictive models and automate complex processes.
+                        I thrive on solving challenging problems and am constantly learning new technologies to deliver high-quality solutions.
+                    </p>
+                </div>
+                <h3>Skills</h3>
+                <div class="skills-grid">
+                    <span>Python</span>
+                    <span>Flask</span>
+                    <span>Django (if applicable)</span>
+                    <span>REST APIs</span>
+                    <span>Database Design (SQL/NoSQL)</span>
+                    <span>Redis</span>
+                    <span>Git/GitHub</span>
+                    <span>Machine Learning</span>
+                    <span>NumPy</span>
+                    <span>Data Preprocessing</span>
+                    <span>Problem Solving</span>
+                    <span>pytorch</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2>My Projects</h2>
+                <div class="projects-grid">
+                    <!-- Project 1: P2P Crypto Bot Backend -->
+                    <div class="project-card">
+                        <h3>P2P Crypto Trading Bot Backend</h3>
+                        <p>An automated Python backend service integrating Bybit and Paystack APIs to automate P2P fiat payments, manage transaction states with Redis, and provide a Flask-based monitoring API.</p>
+                        <a href="https://github.com/obachibuike2003/auto-payment-bot" target="_blank" class="project-btn">View on GitHub <i class="fab fa-github"></i></a>
+                    </div>
+
+                    <!-- Project 2: Student Pass Predictor NN -->
+                    <div class="project-card">
+                        <h3>Student Pass Predictor (Neural Network)</h3>
+                        <p>A simple Neural Network implemented in Python (NumPy) to predict student pass/fail outcomes based on study hours, sleep hours, and previous grades. Demonstrates core ML concepts like forward/backward propagation.</p>
+                        <!-- IMPORTANT: Replace with the actual GitHub link for your Neural Network project -->
+                        <a href="https://github.com/obachibuike2003/student_pass_predictor_nn" target="_blank" class="project-btn">View on GitHub <i class="fab fa-github"></i></a>
+                    </div>
+
+                    <!-- Add more projects here as you develop them -->
+                    <div class="project-card">
+                        <h3>Project Title 3 (intelligent Rock-Paper-Scissors bot)</h3>
+                        <p>This project is an AI-powered Rock-Paper-Scissors game where a user plays against an AI model that attempts to predict and counter the user's moves based on previous inputs. It includes a simple GUI built using Tkinter, and the prediction model uses scikit-learn's RandomForestClassifier</p>
+                        <a href="https://github.com/obachibuike2003/rock-paper-scissors-ai.git" target="_blank" class="project-btn">View on GitHub <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+     <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <p>I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+                <div class="contact-links">
+                    <a href="chibuikeobadiegwu@gmail.com" class="contact-icon"><i class="fas fa-envelope"></i></a>
+                    <a href="https://linkedin.com/in/your_linkedin_profile" target="_blank" class="contact-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/obachibuike2003" target="_blank" class="contact-icon"><i class="fab fa-github"></i></a>
+
+                    <a href="https://x.com/Petercityxtra?t=hZYf9QntwqNZboj1pZaqYw&s=09" target="_blank" class="contact-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/chibuike.cyprian.oba" target="_blank" class="contact-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@dumoba.tech?_t=ZM-8xwEkWG2umM&_r=1" target="_blank" class="contact-icon"><i class="fab fa-tiktok"></i></a>
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Chibuike. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

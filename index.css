@@ -1,0 +1,447 @@
+/* Basic Resets & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #007bff; /* A nice blue */
+    --secondary-color: #6c757d; /* Grey */
+    --dark-bg: #212529; /* Dark background */
+    --light-text: #f8f9fa; /* Light text */
+    --card-bg: #343a40; /* Slightly lighter dark for cards */
+    --border-color: #495057;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    height: 100%; /* Ensure body takes full height for fixed canvas */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--light-text);
+    background-color: var(--dark-bg); /* Fallback background if canvas fails */
+    position: relative; /* For z-index context */
+    min-height: 100vh; /* Ensure content pushes footer down */
+}
+
+/* Canvas Styling - Fixed to background */
+#backgroundCanvas {
+    position: fixed; /* Stays in place when scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Puts it behind all other content */
+    background-color: var(--dark-bg); /* Base background color for canvas area */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    border: 1px solid var(--primary-color);
+}
+
+.primary-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+    transform: translateY(-2px);
+}
+
+/* Header & Navbar */
+header {
+    background-color: var(--card-bg);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--light-text);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: var(--light-text);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--light-text);
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: calc(100vh - 70px); /* Adjust based on header height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Removed background image here as canvas will provide the background */
+    color: var(--light-text);
+    padding: 50px 20px;
+    position: relative; /* Ensure content is above canvas */
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--light-text); /* Override for hero H2 */
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+
+/* Section Styling */
+section {
+    padding: 80px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    background-color: rgba(33, 37, 41, 0.8); /* Semi-transparent background for content sections */
+    position: relative; /* Ensure content is above canvas */
+    z-index: 1;
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* About Section */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+}
+
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    text-align: left;
+    line-height: 1.8;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skills-grid span {
+    background-color: var(--card-bg);
+    color: var(--primary-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    border: 1px solid var(--primary-color);
+}
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.project-card p {
+    font-size: 1rem;
+    color: var(--light-text);
+    min-height: 80px; /* Ensures consistent card height if descriptions vary */
+}
+
+.project-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.project-btn:hover {
+    background-color: #0056b3;
+    color: var(--light-text); /* Keep text color same on hover */
+}
+
+/* Contact Section */
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.contact-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-icon:hover {
+    color: #0056b3;
+    transform: translateY(-5px);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 40px auto 0 auto;
+    text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--card-bg);
+    color: var(--light-text);
+    font-family: var(--font-family);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #adb5bd;
+}
+
+.contact-form button {
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: var(--card-bg);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    font-size: 0.9rem;
+    position: relative; /* Ensure footer is above canvas */
+    z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding: 0 15px;
+    }
+
+    .logo {
+        flex-grow: 1;
+        text-align: left;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none; /* Hidden by default for mobile */
+        text-align: center;
+        background-color: var(--card-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show when active */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Show on mobile */
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-content p {
+        text-align: center;
+    }
+
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr; /* Stack projects vertically */
+    }
+
+    .project-card p {
+        min-height: unset; /* Remove min-height for mobile if needed */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.2rem;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+
+    .contact-icon {
+        font-size: 2.5rem;
+    }
+}
